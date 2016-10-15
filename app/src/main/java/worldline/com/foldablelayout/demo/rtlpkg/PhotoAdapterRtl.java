@@ -14,42 +14,41 @@
  * limitations under the License.
  */
 
-package worldline.com.foldablelayout.demo;
+package worldline.com.foldablelayout.demo.rtlpkg;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import worldline.com.foldablelayout.FoldableLayout;
+import worldline.com.foldablelayout.demo.R;
+import worldline.com.foldablelayout.demo.TransitionAct;
 
 /**
  * TODO: Add a class header comment!
  */
-public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
+public class PhotoAdapterRtl extends RecyclerView.Adapter<PhotoAdapterRtl.PhotoViewHolder> {
 
     private String[] mDataSet;
     private Map<Integer, Boolean> mFoldStates = new HashMap<>();
     private Context mContext;
 
-    public PhotoAdapter(String[] dataSet, Context context) {
+    public PhotoAdapterRtl(String[] dataSet, Context context) {
         mDataSet = dataSet;
         mContext = context;
     }
@@ -164,7 +163,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         public PhotoViewHolder(FoldableLayout foldableLayout) {
             super(foldableLayout);
             mFoldableLayout = foldableLayout;
-            foldableLayout.setupViews(R.layout.list_item_cover, R.layout.list_item_detail, R.dimen.card_cover_height, itemView.getContext());
+            foldableLayout.setupViews(R.layout.list_item_cover_rtl, R.layout.list_item_detail, R.dimen.card_cover_height, itemView.getContext());
             ButterKnife.bind(this, foldableLayout);
         }
     }

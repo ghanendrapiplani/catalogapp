@@ -15,5 +15,6 @@
   -->
 
 <resources>
-    <string name="app_name">foldablelayout</string>
+    <string name="app_name">CatalogApp</string>
+
 </resources>

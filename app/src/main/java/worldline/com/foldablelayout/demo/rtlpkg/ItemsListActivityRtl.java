@@ -14,35 +14,53 @@
  * limitations under the License.
  */
 
-package worldline.com.foldablelayout.demo;
+package worldline.com.foldablelayout.demo.rtlpkg;
 
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import worldline.com.foldablelayout.demo.PhotoAdapter;
+import worldline.com.foldablelayout.demo.R;
 
-public class MainActivity extends AppCompatActivity {
+public class ItemsListActivityRtl extends AppCompatActivity {
 
     @Bind(R.id.recycler_view)
     protected RecyclerView mRecyclerView;
 
-    @Bind(R.id.toolbar)
-    protected Toolbar mToolbar;
+//    @Bind(R.id.toolbar)
+//    protected Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = this.getWindow();
+
+// clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+        window.setStatusBarColor(this.getResources().getColor(R.color.mycolor));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
+
+        ImageView backimg = (ImageView) findViewById(R.id.backimg);
+        Glide.with(getApplicationContext()).load(R.drawable.greylinne).centerCrop().into(backimg);
 
         String[] dataSet = null;
         try {
@@ -50,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        PhotoAdapter adapter = new PhotoAdapter(dataSet, this);
+        PhotoAdapterRtl adapter = new PhotoAdapterRtl(dataSet, this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override

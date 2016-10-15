@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ffffff">
+
+        <ImageView
+            android:transitionName="blue_name"
+            android:src="@drawable/maserati"
+            android:id="@+id/imgV"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:background="#00ffffff" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Maserati"
+            android:textSize="24dp" />
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:text="fresh fish dory marinated with our homemade spices coated breaded crumbs. Served wth tartar sauce and french fries."
+            android:textSize="24dp" />
+    </RelativeLayout>
+</ScrollView>
